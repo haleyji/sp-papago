@@ -6,27 +6,18 @@
 <mapper namespace="com.sp.papago.dao.PapagoInfoMapper">
    <select id="selectPpgInfoList" resultType="ppg">
  	  	select * from ppg_info
- 	  	<where>
-	 	  	<if test="search !=null">
-	 	  		<foreach collection="search" item="col" separator="or">
-	 	  			${col} like '%' || #{searchStr} || '%'
-	 	  		</foreach>
-	 	  	</if>	
- 	  	</where>
+ 	  	order by pi_num desc
    </select>
    
-   <select id="selectPpgInfoView"  parameterType="ppg" resultType="ppg">
+   <select id="selectPpgInfo"  parameterType="ppg" resultType="ppg">
    select * from ppg_info	
-		<where>
-			<if test="piNum != null">
-				and pi_num = #{piNum}
-			</if>
-		</where>
+   where pi_target=rpad(#{piTarget},6,' ')
+   and pi_source=rpad(#{piSource},6,' ')
+   and pi_text=#{piText}
    </select>
 
    <insert id="insertPpgInfo" parameterType="ppg">
-   	insert into ppg_info(pi_num, pi_source, pi_target, pi_text, pi_result)
-   	values(seq_pi_num.nextval, #{piSource}, #{piTarget}, #{piText}, #{piResult})
+   	insert into ppg_info values(seq_pi_num.nextval, #{piSource}, #{piTarget}, #{piText}, #{piResult}, 1)
    </insert>
    
    <update id="updatePpgInfo" parameterType="ppg">

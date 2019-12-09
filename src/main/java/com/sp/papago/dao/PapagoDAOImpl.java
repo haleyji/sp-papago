@@ -20,7 +20,7 @@ public class PapagoDAOImpl implements PapagoDAO {
 	
 	@Override
 	public List<PapagoInfoVO> selectPpgInfoList(PapagoInfoVO pvo) {
-		SqlSession ss = ssf.openSession();
+		SqlSession ss = ssf.openSession(false);
 		try {
 			return ss.selectList("com.sp.papago.dao.PapagoInfoMapper.selectPpgInfoList");
 		}catch(Exception e){
@@ -31,18 +31,33 @@ public class PapagoDAOImpl implements PapagoDAO {
 		return null;
 	}
 	@Override
-	public int insertPpgInfo(TranslateVO tvo) {
-		SqlSession ss = ssf.openSession();
+	public int insertPpgInfo(PapagoInfoVO pvo) {
+		SqlSession ss = ssf.openSession(false);
 		try {
-			return ss.insert("com.sp.papago.dao.PapagoInfoMapper.insertPpgInfo", tvo);
+			int cnt = ss.insert("com.sp.papago.dao.PapagoInfoMapper.insertPpgInfo", pvo);
+			ss.commit();
+			return cnt;
 		}catch(Exception e){
+			ss.rollback();
 			e.printStackTrace();
 		}finally {
 			ss.close();
 		}
 		return 0;
 	}
-
+	
+	@Override
+	public PapagoInfoVO selectPpgInfo(PapagoInfoVO pvo) {
+		SqlSession ss = ssf.openSession(false);
+		try {
+			return ss.selectOne("com.sp.papago.dao.PapagoInfoMapper.selectPpgInfo");
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			ss.close();
+		}
+		return null;
+	}
 	
 
 }

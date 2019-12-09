@@ -64,6 +64,7 @@ public class PapagoServiceImpl implements PapagoService {
 			while ((str = br.readLine()) != null) {
 				res.append(str);
 			}
+			br.close();
 			TranslateVO resultTvo = om.readValue(res.toString(), TranslateVO.class);
 			log.info(res.toString());
 			log.info("tvo => {}",resultTvo);

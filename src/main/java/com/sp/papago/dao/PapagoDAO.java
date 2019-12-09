@@ -8,6 +8,8 @@ import com.sp.papago.vo.TranslateVO;
 public interface PapagoDAO {
 
 	public List<PapagoInfoVO> selectPpgInfoList(PapagoInfoVO pvo);
-	public int insertPpgInfo(TranslateVO tvo);
+	public PapagoInfoVO selectPpgInfo(PapagoInfoVO pvo);
+	public int insertPpgInfo(PapagoInfoVO pvo);
+	
 	
 }
