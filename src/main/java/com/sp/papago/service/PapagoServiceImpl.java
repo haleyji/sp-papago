@@ -8,13 +8,18 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.List;
+
+import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sp.papago.dao.PapagoDAO;
 import com.sp.papago.vo.Message;
+import com.sp.papago.vo.PapagoInfoVO;
 import com.sp.papago.vo.TranslateVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +35,10 @@ public class PapagoServiceImpl implements PapagoService {
 	@Value("${client.api.url}")
 	private String apiUrl;
 	private ObjectMapper om = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
-
+	
+	@Resource
+	private PapagoDAO pdao;
+	
 	@Override
 	public Message doTranslate(TranslateVO tvo) {
 		try {
@@ -68,4 +76,8 @@ public class PapagoServiceImpl implements PapagoService {
 		return null;
 	}
 
+	@Override
+	public List<PapagoInfoVO> getPpgInfoList(PapagoInfoVO pvo){
+		return pdao.selectPpgInfoList(pvo);
+	}
 }

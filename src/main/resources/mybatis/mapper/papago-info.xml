@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sp.papago.dao.PapagoInfoMapper">
+   <select id="selectPpgInfoList" resultType="ppg">
+ 	  	select * from ppg_info
+ 	  	<where>
+	 	  	<if test="search !=null">
+	 	  		<foreach collection="search" item="col" separator="or">
+	 	  			${col} like '%' || #{searchStr} || '%'
+	 	  		</foreach>
+	 	  	</if>	
+ 	  	</where>
+   </select>
+   
+   <select id="selectPpgInfoView"  parameterType="ppg" resultType="ppg">
+   select * from ppg_info	
+		<where>
+			<if test="piNum != null">
+				and pi_num = #{piNum}
+			</if>
+		</where>
+   </select>
+
+   <insert id="insertPpgInfo" parameterType="ppg">
+   	insert into ppg_info(pi_num, pi_source, pi_target, pi_text, pi_result)
+   	values(seq_pi_num.nextval, #{piSource}, #{piTarget}, #{piText}, #{piResult})
+   </insert>
+   
+   <update id="updatePpgInfo" parameterType="ppg">
+   update ppg_info
+   <set>
+   	<if test="piSource!=null">
+   		,pi_source = #{piSource}
+   	</if>
+   	<if test="piTarget!=null">
+   		,pi_target = #{piTarget}
+   	</if>
+   	<if test="piText!=null">
+   		,pi_text = #{piText}
+   	</if>
+   	<if test="piResult!=null">
+   		,pi_result = #{piResult}
+   	</if>
+   	pi_cnt =pi_cnt+1
+   	where pi_num = #{piNum}
+   </set>
+   </update>
+   
+   <delete id="deletePpgInfos" parameterType="ppg">
+   delete ppg_info
+   <where>
+	 	  <if test="piNums !=null">
+	 	  	<foreach collection="piNums" item="nums" separator="or">
+	 	  			pi_num = #{piNum}
+	 	  	</foreach>
+	 	  </if>	
+ 	  	</where>
+   </delete>
+</mapper>
