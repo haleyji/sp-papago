@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login</title>
+
 </head>
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -143,6 +144,7 @@
 				dataType: 'json',
 				data: JSON.stringify(param),
 				success : function(res) {	
+					console.log(res);
 					$('#result').val(res.result.translatedText);
 				},
 				error : function(res) {

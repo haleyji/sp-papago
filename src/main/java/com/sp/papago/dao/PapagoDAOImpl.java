@@ -50,13 +50,29 @@ public class PapagoDAOImpl implements PapagoDAO {
 	public PapagoInfoVO selectPpgInfo(PapagoInfoVO pvo) {
 		SqlSession ss = ssf.openSession(false);
 		try {
-			return ss.selectOne("com.sp.papago.dao.PapagoInfoMapper.selectPpgInfo");
+			return ss.selectOne("com.sp.papago.dao.PapagoInfoMapper.selectPpgInfo",pvo);
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally {
 			ss.close();
 		}
 		return null;
+	}
+	@Override
+	public int updatePpgInfoForCnt(PapagoInfoVO pvo) {
+		SqlSession ss = ssf.openSession(false);
+		try {
+			int cnt = ss.update("com.sp.papago.dao.PapagoInfoMapper.updatePpgInfoForCnt",pvo);
+			ss.commit();
+			return cnt;
+		}catch(Exception e){
+			ss.rollback();
+			e.printStackTrace();
+		}finally {
+			ss.close();
+		}
+		return 0;
 	}
 	
 

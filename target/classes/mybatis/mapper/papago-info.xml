@@ -10,34 +10,18 @@
    </select>
    
    <select id="selectPpgInfo"  parameterType="ppg" resultType="ppg">
-   select * from ppg_info	
-   where pi_target=rpad(#{piTarget},6,' ')
-   and pi_source=rpad(#{piSource},6,' ')
+   select * from ppg_info where pi_target=rpad(#{piTarget},6,' ') and pi_source=rpad(#{piSource},6,' ')
    and pi_text=#{piText}
    </select>
 
    <insert id="insertPpgInfo" parameterType="ppg">
-   	insert into ppg_info values(seq_pi_num.nextval, #{piSource}, #{piTarget}, #{piText}, #{piResult}, 1)
+   	insert into ppg_info 
+   	values(seq_pi_num.nextval, #{piSource}, #{piTarget}, #{piText}, #{piResult}, 1)
    </insert>
    
-   <update id="updatePpgInfo" parameterType="ppg">
+   <update id="updatePpgInfoForCnt" parameterType="ppg">
    update ppg_info
-   <set>
-   	<if test="piSource!=null">
-   		,pi_source = #{piSource}
-   	</if>
-   	<if test="piTarget!=null">
-   		,pi_target = #{piTarget}
-   	</if>
-   	<if test="piText!=null">
-   		,pi_text = #{piText}
-   	</if>
-   	<if test="piResult!=null">
-   		,pi_result = #{piResult}
-   	</if>
-   	pi_cnt =pi_cnt+1
-   	where pi_num = #{piNum}
-   </set>
+   set pi_cnt =pi_cnt+1 where pi_num=#{piNum}
    </update>
    
    <delete id="deletePpgInfos" parameterType="ppg">

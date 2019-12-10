@@ -8,10 +8,13 @@
 	</settings>
 	<typeAliases>
 		<typeAlias type="com.sp.papago.vo.PapagoInfoVO" alias="ppg" />
+		<typeAlias type="com.sp.papago.vo.UserInfoVO" alias="ui" />
 	</typeAliases>
+	
 
 	<mappers>
 		<mapper resource="mybatis/mapper/papago-info.xml" />
+		<mapper resource="mybatis/mapper/user-info.xml" />
 	</mappers>
 
 </configuration>

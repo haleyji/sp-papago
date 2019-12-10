@@ -4,14 +4,13 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.sp.papago.test.PapagoTest;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,17 +20,17 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @Slf4j
 public class HomeController {
-	/*
-	 * @Resource private PapagoTest pt;
-	 */
 	
+	@GetMapping("/views/**")
+	public String goPage(HttpServletRequest req) {
+		String uri = req.getRequestURI();
+		return uri.substring(6);
+	}
 	
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		/*
-		 * pt.doPapagoTest(); log.info("client.id {}.", pt.getId());
-		 */
+		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		

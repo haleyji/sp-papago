@@ -1,4 +1,4 @@
-package com.sp.papago.service;
+package com.sp.papago.service.impl;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -18,8 +18,10 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sp.papago.dao.PapagoDAO;
+import com.sp.papago.service.PapagoService;
 import com.sp.papago.vo.Message;
 import com.sp.papago.vo.PapagoInfoVO;
+import com.sp.papago.vo.Result;
 import com.sp.papago.vo.TranslateVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -42,6 +44,21 @@ public class PapagoServiceImpl implements PapagoService {
 	@Override
 	public Message doTranslate(TranslateVO tvo) {
 		try {
+			PapagoInfoVO pvo = new PapagoInfoVO();
+			pvo.setPiSource(tvo.getSource());
+			pvo.setPiTarget(tvo.getTarget());
+			pvo.setPiText(tvo.getText());
+			pvo = pdao.selectPpgInfo(pvo);
+			if(pvo!=null) {
+				Result result = new Result();
+				result.setSrcLangType(pvo.getPiSource());
+				result.setTarLangType(pvo.getPiTarget());
+				result.setTranslatedText(pvo.getPiResult());
+				Message message = new Message();
+				message.setResult(result);
+				pdao.updatePpgInfoForCnt(pvo);
+				return message;
+			}
 			String text = URLEncoder.encode(tvo.getText(), "UTF-8");
 			URL url = new URL(apiUrl);
 			HttpURLConnection hc = (HttpURLConnection) url.openConnection();
@@ -51,7 +68,7 @@ public class PapagoServiceImpl implements PapagoService {
 			hc.setRequestProperty("X-Naver-Client-Secret", secret);
 			String param = "source="+tvo.getSource()+ "&target="+ tvo.getTarget()+"&text=" + text;
 			
-			hc.setDoOutput(true);
+			hc.setDoOutput(true);//이걸해야 parameter를 보낼 수 가 있다(default가 false)
 			DataOutputStream dos = new DataOutputStream(hc.getOutputStream());
 			dos.writeBytes(param);
 			dos.flush();
@@ -66,9 +83,15 @@ public class PapagoServiceImpl implements PapagoService {
 			}
 			br.close();
 			TranslateVO resultTvo = om.readValue(res.toString(), TranslateVO.class);
-			log.info(res.toString());
-			log.info("tvo => {}",resultTvo);
+			Result result = resultTvo.getMessage().getResult();
+			pvo = new PapagoInfoVO();
+			pvo.setPiSource(result.getSrcLangType());
+			pvo.setPiTarget(result.getTarLangType());
+			pvo.setPiText(tvo.getText());
+			pvo.setPiResult(result.getTranslatedText());
+			pdao.insertPpgInfo(pvo);
 			return resultTvo.getMessage();
+			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
