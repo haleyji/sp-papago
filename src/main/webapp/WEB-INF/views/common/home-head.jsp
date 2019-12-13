@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="/resources/bootstrap/bt-home/css/owl.carousel.css">
 	<link rel="stylesheet" href="/resources/bootstrap/bt-home/css/hexagons.min.css">
 	<link rel="stylesheet" href="/resources/bootstrap/bt-home/css/nice-select.css">
-	<link rel="stylesheet" href="/resources/bootstrap/bt-home/css/main.css">
 
 <!-- ======================JS============================= -->
 	<script src="/resources/bootstrap/bt-home/js/vendor/jquery-2.2.4.min.js"></script>

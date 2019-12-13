@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>papago translate history</title>
+<title>Translate Tistory</title>
 <style>
 </style>
 </head>

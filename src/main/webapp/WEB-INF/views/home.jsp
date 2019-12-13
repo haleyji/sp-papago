@@ -17,10 +17,11 @@
 	<!-- meta character set -->
 	<meta charset="UTF-8">
 	<!-- Site Title -->
-	<title>PP</title>
+	<title>Main</title>
 
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700|Roboto:400,400i,500" rel="stylesheet">
 
+	<link rel="stylesheet" href="/resources/bootstrap/bt-home/css/main.css">
 </head>
 
 <body>
@@ -40,7 +41,7 @@
 						<a href="/views/user/signup" class="primary-btn">Signup</a>
 					</c:if>
 					<c:if test="${ui!=null}">
-						<a href="/views/papago/papagoOG" class="primary-btn">Translate</a>
+						<a href="/views/papago/papago" class="primary-btn">Translate</a>
 						<a href="/views/papago/history" class="primary-btn">History</a> 
 					</c:if>
 					</div>
