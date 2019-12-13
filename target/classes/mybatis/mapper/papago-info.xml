@@ -14,8 +14,8 @@
    and pi_text=#{piText}
    </select>
 
-   <insert id="insertPpgInfo" parameterType="ppg">
-   	insert into ppg_info 
+   <insert id="insertPpgInfo" parameterType="ppg" useGeneratedKeys="true" keyProperty="piNum" keyColumn="pi_num">
+   	insert into ppg_info(pi_num, pi_source, pi_target, pi_text, pi_result, pi_cnt) 
    	values(seq_pi_num.nextval, #{piSource}, #{piTarget}, #{piText}, #{piResult}, 1)
    </insert>
    

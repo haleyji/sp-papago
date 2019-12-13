@@ -23,9 +23,14 @@ public class UserController {
 	
 	@PostMapping("/login")
 	public Map<String,Object> doLogin(@RequestBody UserInfoVO ui, HttpSession hs){
-		log.info("us =>{}",us);
+		log.info("ui =>{}",ui);
 		log.info("user info=>{}",ui);
 		log.info("user info=>{}",hs);
 		return us.doLogin(ui, hs);
+	}
+	@PostMapping("/signup")
+	public Map<String, String> doSignup(@RequestBody UserInfoVO ui){
+		log.info("ui =>{}",ui);
+		return us.doSignup(ui);
 	}
 }

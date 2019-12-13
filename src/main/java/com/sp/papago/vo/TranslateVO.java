@@ -12,4 +12,5 @@ public class TranslateVO {
 	private String target;
 	private String text;
 	private Message message;
+	private Integer uiNum;
 }

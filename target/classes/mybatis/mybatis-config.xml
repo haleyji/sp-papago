@@ -9,11 +9,13 @@
 	<typeAliases>
 		<typeAlias type="com.sp.papago.vo.PapagoInfoVO" alias="ppg" />
 		<typeAlias type="com.sp.papago.vo.UserInfoVO" alias="ui" />
+		<typeAlias type="com.sp.papago.vo.PapagoStatsVO" alias="ps" />
 	</typeAliases>
 	
 
 	<mappers>
 		<mapper resource="mybatis/mapper/papago-info.xml" />
+		<mapper resource="mybatis/mapper/papago-info-stats.xml" />
 		<mapper resource="mybatis/mapper/user-info.xml" />
 	</mappers>
 

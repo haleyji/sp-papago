@@ -4,22 +4,53 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
+<title>Signin</title>
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous">
   </script>
+<jsp:include page="/WEB-INF/views/common/login-head.jsp"></jsp:include>
+</head>
 <body>
-<div class="container">
-	<lable for="uiId">아이디</lable>
-	<input type="text" id="uiId" maxlength="10"><br>
-	<lable for="uiPwd">비밀번호</lable>
-	<input type="password" id="uiPwd" maxlength="10"><br>
-	<button>로그인</button>
-</div>
-<script>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+				<form class="login100-form validate-form flex-sb flex-w">
+					<span class="login100-form-title p-b-32">
+						Login
+					</span>
+
+					<span class="txt1 p-b-11">
+						Id
+					</span>
+					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
+						<input class="input100" type="text"  id="uiId" >
+						<span class="focus-input100"></span>
+					</div>
+					
+					<span class="txt1 p-b-11">
+						Password
+					</span>
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+						<span class="btn-show-pass">
+							<i class="fa fa-eye"></i>
+						</span>
+						<input class="input100" type="password" id="uiPwd">
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button type="button" class="login100-form-btn">
+							LOGIN
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<script>
 $(document).ready(function(){
 	$('button').on('click',function(){
 		var param = {
@@ -31,10 +62,16 @@ $(document).ready(function(){
 			url:'/login',
 			method:'POST',
 			data:param,
+			beforeSend:function(xhr){
+				xhr.setRequestHeader('x-ajax','true');
+			},
 			contentType:'application/json',
 			success:function(res){
 				console.log(res);
-				alert(res.msg);
+				alert(res.msg)
+				if(res.result=='true'){
+					location.href='/';
+				}
 			},
 			error:function(res){
 				console.log(res);

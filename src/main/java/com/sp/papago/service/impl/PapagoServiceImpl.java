@@ -18,9 +18,11 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sp.papago.dao.PapagoDAO;
+import com.sp.papago.dao.PapagoStatsDAO;
 import com.sp.papago.service.PapagoService;
 import com.sp.papago.vo.Message;
 import com.sp.papago.vo.PapagoInfoVO;
+import com.sp.papago.vo.PapagoStatsVO;
 import com.sp.papago.vo.Result;
 import com.sp.papago.vo.TranslateVO;
 
@@ -40,10 +42,15 @@ public class PapagoServiceImpl implements PapagoService {
 	
 	@Resource
 	private PapagoDAO pdao;
+	@Resource
+	private PapagoStatsDAO psdao;
 	
 	@Override
 	public Message doTranslate(TranslateVO tvo) {
 		try {
+			PapagoStatsVO ps = new PapagoStatsVO();
+			ps.setUiNum(tvo.getUiNum());
+			
 			PapagoInfoVO pvo = new PapagoInfoVO();
 			pvo.setPiSource(tvo.getSource());
 			pvo.setPiTarget(tvo.getTarget());
@@ -56,7 +63,10 @@ public class PapagoServiceImpl implements PapagoService {
 				result.setTranslatedText(pvo.getPiResult());
 				Message message = new Message();
 				message.setResult(result);
+				
 				pdao.updatePpgInfoForCnt(pvo);
+				ps.setPiNum(pvo.getPiNum());
+				psdao.insertPapagoStats(ps);
 				return message;
 			}
 			String text = URLEncoder.encode(tvo.getText(), "UTF-8");
@@ -89,7 +99,11 @@ public class PapagoServiceImpl implements PapagoService {
 			pvo.setPiTarget(result.getTarLangType());
 			pvo.setPiText(tvo.getText());
 			pvo.setPiResult(result.getTranslatedText());
+			
 			pdao.insertPpgInfo(pvo);
+			ps.setPiNum(pvo.getPiNum());
+			psdao.insertPapagoStats(ps);
+			
 			return resultTvo.getMessage();
 			
 		} catch (MalformedURLException e) {
