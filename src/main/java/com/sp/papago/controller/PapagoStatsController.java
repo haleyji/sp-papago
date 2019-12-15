@@ -30,7 +30,6 @@ public class PapagoStatsController {
 	}
 	@GetMapping("/papago/stats/user")
 	public List<PapagoStatsVO> getPapagoStatsListByUser(@ModelAttribute PapagoStatsVO ps){
-		log.debug("ps============>{}",ps);
 		return psService.selectPapagoStatsByUser(ps);
 	}
 	

@@ -23,14 +23,12 @@ public class UserController {
 	
 	@PostMapping("/login")
 	public Map<String,Object> doLogin(@RequestBody UserInfoVO ui, HttpSession hs){
-		log.info("ui =>{}",ui);
-		log.info("user info=>{}",ui);
-		log.info("user info=>{}",hs);
+		log.debug("ui=====>{}",ui);
 		return us.doLogin(ui, hs);
 	}
 	@PostMapping("/signup")
 	public Map<String, String> doSignup(@RequestBody UserInfoVO ui){
-		log.info("ui =>{}",ui);
+		log.debug("ui=====>{}",ui);
 		return us.doSignup(ui);
 	}
 }

@@ -30,7 +30,6 @@ public class PapagoController {
 	public Message doTranslate(@RequestBody TranslateVO tvo, HttpSession hs) {
 		UserInfoVO ui = (UserInfoVO)hs.getAttribute("ui");
 		tvo.setUiNum(ui.getUiNum());
-		log.info("tvo => {}",tvo);
 		return ps.doTranslate(tvo);
 	}
 	

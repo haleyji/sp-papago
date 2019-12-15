@@ -9,23 +9,15 @@ integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 crossorigin="anonymous"></script>
 <jsp:include page="/WEB-INF/views/common/papago-head.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/views/common/head.jsp"></jsp:include>
-	<!-- Mobile Specific Meta -->
+	
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!-- Favicon-->
-	<link rel="shortcut icon" href="/resources/bootstrap/bt-papago/img/fav.png">
-	<!-- Author Meta -->
 	<meta name="author" content="colorlib">
-	<!-- Meta Description -->
 	<meta name="description" content="">
-	<!-- Meta Keyword -->
 	<meta name="keywords" content="">
-	<!-- meta character set -->
 	<meta charset="UTF-8">
-	<!-- Site Title -->
+	
 	<title>Translate</title>
-
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700|Roboto:400,400i,500" rel="stylesheet">
-
 	<style>
 	h1 {
 	text-align:center;
@@ -69,9 +61,7 @@ crossorigin="anonymous"></script>
 </head>
 
 <body>
-
-
-	<!--================ start banner Area =================-->
+	<!--================ start main Area =================-->
 	<section class="home-banner-area">
 		<div class="container">
 			<div class="row justify-content-end fullscreen">
@@ -128,7 +118,8 @@ crossorigin="anonymous"></script>
 							
 						</p>
 						<div class="button">
-						<button id="btn" class="primary-btn">Translate</button>
+						<button id="btn" class="primary-btn"><b>번역</b></button>
+						<button id="goHistory" class="primary-btn"><b>과거 내역</b></button>
 						</div>
 						
 					</div>
@@ -138,7 +129,7 @@ crossorigin="anonymous"></script>
 			</div>
 		</div>
 	</section>
-	<!--================ End banner Area =================-->
+	<!--================ End main Area =================-->
 
 	<!--================ start footer Area  =================-->
 	<footer class="footer-area section_gap">
@@ -185,6 +176,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script>
 	
 	$(document).ready(function(){
+		$('#goHistory').on('click',function(){
+			location.href='/views/papago/history';
+		})
 		$('#btn').on('click',function(){
 			var param = {
 					source : $('#source option:selected').val(),
@@ -213,5 +207,4 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	});
 	</script>
 </body>
-
 </html>

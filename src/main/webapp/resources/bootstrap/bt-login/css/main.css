@@ -58,7 +58,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #57b846;
+  color: #4ba0f9;
 }
 
 /*---------------------------------------------*/
@@ -181,8 +181,13 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
+    background:#4ba0f9;
+    
+    background: -webkit-linear-gradient(bottom, #4ba0f9, #85f3f9);
+  background: -o-linear-gradient(bottom, #4ba0f9, #85f3f9);
+  background: -moz-linear-gradient(bottom, #4ba0f9, #85f3f9);
+  background: linear-gradient(bottom, #4ba0f9, #85f3f9);
   
-  background-color: #4ba0f9;
 }
 
 
@@ -315,11 +320,11 @@ iframe {
 }
 
 .btn-show-pass:hover {
-  color: #57b846;
+  color: #4ba0f9;
 }
 
 .btn-show-pass.active {
-  color: #57b846;
+  color: #4ba0f9;
 }
 
 /*==================================================================
@@ -370,7 +375,7 @@ iframe {
 }
 
 .input-checkbox100:checked + .label-checkbox100::before {
-  color: #57b846;
+  color: #4ba0f9;
 }
 
 
@@ -391,7 +396,7 @@ iframe {
   font-size: 16px;
   color: #fff;
   line-height: 1.2;
-
+  text-transform: uppercase;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -415,6 +420,11 @@ color:#000000;
 .login100-form-btn:hover {
 	 border: 0px;
 color:#ffffff;
+ box-shadow: 0px 20px 20px 0px rgba(157, 157, 157, 0.5);
+    border-image: linear-gradient(to right, #4ba0f9 0%, #85f3f9 100%);
+    -webkit-border-image: linear-gradient(to right, #4ba0f9 0%, #85f3f9 100%);
+    border-image-slice: 1;
+    border-width: 2px;
   background: -webkit-linear-gradient(90deg, #4ba0f9 0%, #85f3f9 100%);
   background: -moz-linear-gradient(90deg, #4ba0f9 0%, #85f3f9 100%);
   background: -o-linear-gradient(90deg, #4ba0f9 0%, #85f3f9 100%);

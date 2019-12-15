@@ -1,43 +1,73 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>User-Signup</title>
-</head>
+<title>Signup</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-	crossorigin="anonymous"></script>
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous">
+</script>
 <jsp:include page="/WEB-INF/views/common/head.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/common/login-head.jsp"></jsp:include>
+</head>
 <body>
-	<h2 align="center">User-Signup</h2>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+				<form class="login100-form validate-form flex-sb flex-w">
+					<span class="login100-form-title p-b-32">
+						Signup
+					</span>
+					
+					<span class="txt1 p-b-11">
+						Name
+					</span>
+					<div class="wrap-input100 validate-input m-b-20" data-validate = "Username is required">
+						<input class="input100" type="text"  id="uiName" >
+						<span class="focus-input100"></span>
+					</div>
+					
+					<span class="txt1 p-b-11">
+						Id
+					</span>
+					<div class="wrap-input100 validate-input m-b-20" data-validate = "Username is required">
+						<input class="input100" type="text"  id="uiId" >
+						<span class="focus-input100"></span>
+					</div>
+					
+					<span class="txt1 p-b-11">
+						Password
+					</span>
+					<div class="wrap-input100 validate-input m-b-20" data-validate = "Password is required">
+						<span class="btn-show-pass">
+							<i class="fa fa-eye"></i>
+						</span>
+						<input class="input100" type="password" id="uiPwd">
+						<span class="focus-input100"></span>
+					</div>
+					
+					<span class="txt1 p-b-11">
+						Password Check
+					</span>
+					<div class="wrap-input100 validate-input m-b-20" data-validate = "Password-Check is required">
+						<span class="btn-show-pass">
+							<i class="fa fa-eye"></i>
+						</span>
+						<input class="input100" type="password" id="uiPwdCheck">
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button type="button" class="login100-form-btn">
+							signup
+						</button>
+					</div>
 
-	<div class="container">
-		<table class="table table-bordered" border="1">
-			<thread class="thread">
-			<tr>
-				<th>이름</th>
-				<td><input type="text" id="uiName"></td>
-			</tr>
-			<tr>
-				<th>아이디</th>
-				<td><input type="text" id="uiId"></td>
-			</tr>
-			<tr>
-				<th>비밀번호</th>
-				<td><input type="password" id="uiPwd"></td>
-			</tr>
-			<tr>
-				<th>비밀번호 확인</th>
-				<td><input type="password" id="uiPwdCheck"></td>
-			</tr>
-			<tr>
-				<th colspan="2"><button>가입</button></th>
-			</tr>
-			</thread>
-		</table>
+				</form>
+			</div>
+		</div>
 	</div>
 <script>
 

@@ -20,6 +20,7 @@ import com.sp.papago.vo.UserInfoVO;
 
 import lombok.extern.slf4j.Slf4j;
 
+
 @Component
 @Slf4j
 public class SessionInterceptor extends HandlerInterceptorAdapter {

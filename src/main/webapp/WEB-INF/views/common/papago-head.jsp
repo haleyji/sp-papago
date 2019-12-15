@@ -8,4 +8,4 @@
 	<link rel="stylesheet" href="/resources/bootstrap/bt-papago/css/owl.carousel.css">
 	<link rel="stylesheet" href="/resources/bootstrap/bt-papago/css/hexagons.min.css">
 	<link rel="stylesheet" href="/resources/bootstrap/bt-papago/css/nice-select.css">
-	<link rel="stylesheet" href="/resources/bootstrap/bt-papago/css/main.css">
+	<link rel="stylesheet" href="/resources/bootstrap/bt-papago/css/main.css?ver=1.0.1">

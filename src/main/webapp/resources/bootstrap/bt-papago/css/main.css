@@ -676,10 +676,12 @@ th {
   -webkit-text-fill-color: transparent; }
 
 .primary-btn {
-  background: transparent;
+  background: #ffffff;
   line-height: 48px;
   padding-left: 40px;
   padding-right: 40px;
+  margin-right: 20px;
+  margin-left: 20px;
   border-radius: 0px;
   border: 2px solid #4ba0f9;
   color: #000000;
@@ -2203,7 +2205,9 @@ h6 {
 /* =================================== */
 .home-banner-area {
   background: url(../img/home-banner-bg.png) no-repeat center;
-  background-size: cover; }
+  width:100%;
+  background-size: cover;
+   }
   @media (max-width: 1440px) {
     .home-banner-area .fullscreen {
       height: 750px !important; } }

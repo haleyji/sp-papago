@@ -10,8 +10,7 @@
    </select>
    
    <select id="selectPpgInfo"  parameterType="ppg" resultType="ppg">
-   select * from ppg_info where pi_target=rpad(#{piTarget},6,' ') and pi_source=rpad(#{piSource},6,' ')
-   and pi_text=#{piText}
+   select * from ppg_info where pi_target=rpad(#{piTarget},6,' ') and pi_source=rpad(#{piSource},6,' ')and pi_text=#{piText}
    </select>
 
    <insert id="insertPpgInfo" parameterType="ppg" useGeneratedKeys="true" keyProperty="piNum" keyColumn="pi_num">

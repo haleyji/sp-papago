@@ -6,8 +6,7 @@
 <jsp:include page="/WEB-INF/views/common/home-head.jsp"></jsp:include>
 	<!-- Mobile Specific Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!-- Favicon-->
-	<link rel="shortcut icon" href="img/fav.png">
+	
 	<!-- Author Meta -->
 	<meta name="author" content="colorlib">
 	<!-- Meta Description -->
@@ -21,7 +20,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700|Roboto:400,400i,500" rel="stylesheet">
 
-	<link rel="stylesheet" href="/resources/bootstrap/bt-home/css/main.css">
+	<link rel="stylesheet" href="/resources/bootstrap/bt-home/css/main.css?ver=1.4">
 </head>
 
 <body>
@@ -37,7 +36,7 @@
 							of <span>Papago Project</span>
 						</h1><br>
 					<c:if test="${ui==null }">
-						<a href="/views/user/login" class="primary-btn">Login</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						<a href="/views/user/login" class="primary-btn">Login</a>
 						<a href="/views/user/signup" class="primary-btn">Signup</a>
 					</c:if>
 					<c:if test="${ui!=null}">
