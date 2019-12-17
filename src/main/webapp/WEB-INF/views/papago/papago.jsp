@@ -118,8 +118,8 @@ crossorigin="anonymous"></script>
 							
 						</p>
 						<div class="button">
-						<button id="btn" class="primary-btn"><b>번역</b></button>
-						<button id="goHistory" class="primary-btn"><b>과거 내역</b></button>
+						<button id="btn" class="primary-btn">Translate</button>
+						<button id="goHistory" class="primary-btn">History</button>
 						</div>
 						
 					</div>

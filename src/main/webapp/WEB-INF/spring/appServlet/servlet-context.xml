@@ -3,7 +3,9 @@
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
@@ -29,6 +31,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/"/>
 			<mvc:exclude-mapping path="/views/user/login"/>
 			<mvc:exclude-mapping path="/views/user/signup"/>
 			<mvc:exclude-mapping path="/signup"/>
@@ -39,5 +42,13 @@
 		</mvc:interceptor>
 	</mvc:interceptors> 
 	
+	<beans:bean id="wst" class="com.sp.papago.socket.WebSocketTest" />
+		
+		<websocket:handlers allowed-origins="*">
+			<websocket:mapping handler="wst" path="/wst"/>
+			<websocket:handshake-interceptors>
+				<beans:bean class="com.sp.papago.interceptor.HandInterceptor"></beans:bean>
+			</websocket:handshake-interceptors>
+		</websocket:handlers>
 	
 </beans:beans>
