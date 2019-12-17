@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sp.papago.dao.UserInfo">
+	<select id="doLogin" resultType="ui">
+		select * from user_info where ui_id=#{uiId} and ui_pwd=#{uiPwd}
+	</select>
+	
+	<insert id="doSignup" parameterType="ui">
+   	insert into user_info(ui_num, ui_id, ui_pwd, ui_name, credat, cretim, moddat, modtim)
+   	values(seq_ui_num.nextval, #{uiId}, #{uiPwd}, #{uiName}, 
+   	to_char(sysdate,'YYYYMMDD'), to_char(sysdate,'HH24MISS'),
+   	to_char(sysdate,'YYYYMMDD'), to_char(sysdate,'HH24MISS'))
+   </insert>
+   
+   
+   <!-- 
+   <select id="selectUserInfoList" resultType="ui">
+ 	  	select * from user_info
+ 	  	<where>
+	 	  	<if test="search !=null">
+	 	  		<foreach collection="search" item="col" separator="or">
+	 	  			${col} like '%' || #{searchStr} || '%'
+	 	  			$는 query문의 형채로 들어감 ''로 바뀌는 게 아니고 쿼리에 아예 하나로 만들어짐. #은 ?로 들어갔다가 나중에 밸류가 삽입되는 형식
+	 	  		</foreach>
+	 	  	</if>	
+ 	  	</where>
+   </select>
+   
+   <select id="selectUserInfo"  parameterType="ui" resultType="ui">
+   select * from user_info	
+		<where>
+			<if test="uiNum != null">
+				and ui_num = #{uiNum}
+			</if>
+		</where>
+   </select>
+   
+    <select id="selectUserLogin"  parameterType="ui" resultType="ui">
+   select * from user_info
+   		<where>
+			ui_id=#{uiId} and ui_pwd=#{uiPwd}
+		</where>
+	</select>
+   
+   
+   <update id="updateUserInfo" parameterType="ui">
+   update user_info
+   <set>
+   	<if test="uiId!=null">
+   		,ui_id = #{uiId}
+   	</if>
+   	<if test="uiPwd!=null">
+   		,ui_pwd = #{uiPwd}
+   	</if>
+   	<if test="uiName!=null">
+   		,ui_name = #{uiName}
+   	</if>
+   	where ui_num = #{uiNum}
+   </set>
+   </update>
+   
+   <delete id="deleteUserInfos" parameterType="ui">
+   delete user_info
+   <where>
+	 	  <if test="uiNums !=null">
+	 	  	<foreach collection="uiNums" item="nums" separator="or">
+	 	  			ui_num = #{nums} 
+	 	  	</foreach>
+	 	  </if>	
+ 	  	</where>
+   </delete> -->
+</mapper>
