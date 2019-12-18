@@ -6,7 +6,7 @@
 <mapper namespace="com.sp.papago.dao.PapagoStatsMapper">
 	<!-- ppg_stats 테이블내용 다 조회 + user_info 테이블과 inner join -->
 	<select id="selectPapagoStats" resultType="ps">
-		select ps.*,ui.ui_id from PPG_STATS ps inner join USER_INFO ui on ps.UI_NUM=ui.UI_NUM
+		select ps.*,ui.ui_id from ppg_stats ps inner join user_info ui on ps.ui_num=ui.ui_num
 		<trim>
 			<if test='order==null'>
 				order by ps_num desc
@@ -45,7 +45,7 @@
 	</select>
 	
 	<insert id = "insertPapagoStats" > 
-		insert into ppg_stats
-		values(seq_ps_num.nextval, #{uiNum}, #{piNum}, to_char(sysdate,'yyyymmdd'))
+		insert into ppg_stats(ui_num, pi_num, credat)
+		values( #{uiNum}, #{piNum}, date_format(NOW(),'%Y%m%d'))
 	</insert>
 </mapper>

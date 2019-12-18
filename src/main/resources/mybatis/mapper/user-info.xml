@@ -9,12 +9,11 @@
 	</select>
 	
 	<insert id="doSignup" parameterType="ui">
-   	insert into user_info(ui_num, ui_id, ui_pwd, ui_name, credat, cretim, moddat, modtim)
-   	values(seq_ui_num.nextval, #{uiId}, #{uiPwd}, #{uiName}, 
-   	to_char(sysdate,'YYYYMMDD'), to_char(sysdate,'HH24MISS'),
-   	to_char(sysdate,'YYYYMMDD'), to_char(sysdate,'HH24MISS'))
+   	insert into user_info( ui_id, ui_pwd, ui_name, credat, cretim, moddat, modtim)
+   	values( #{uiId}, #{uiPwd}, #{uiName}, 
+   	date_format(NOW(),'%Y%m%d'), DATE_FORMAT(NOW(),'%H%i%S'),
+   	date_format(NOW(),'%Y%m%d'), DATE_FORMAT(NOW(),'%H%i%S'))
    </insert>
-   
    
    <!-- 
    <select id="selectUserInfoList" resultType="ui">
