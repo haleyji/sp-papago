@@ -31,9 +31,10 @@
 				<div class="col-lg-6 col-md-12 home-banner-left d-flex fullscreen align-items-center">
 					<div>
 						<h1 class="">
-							<span>Welcome </span>to <br>
+							<!-- <span>Welcome </span>to <br>
 							Our Website <br>
-							of <span>Papago Project</span>
+							of <span>Papago Project</span> -->
+							TEST중.....jenkins
 						</h1><br>
 					<c:if test="${ui==null }">
 						<a href="/views/user/login" class="primary-btn">Login</a>
