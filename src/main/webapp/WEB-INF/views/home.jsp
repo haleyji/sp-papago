@@ -34,6 +34,7 @@
 							<span>Welcome </span>to <br>
 							Our Website <br>
 							of <span>Papago Project</span>
+							test 1.0.0
 						</h1><br>
 					<c:if test="${ui==null }">
 						<a href="/views/user/login" class="primary-btn">Login</a>
