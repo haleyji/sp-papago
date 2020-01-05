@@ -4,5 +4,3 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<c:set var="bt-login" value="/resources/bootstrap/bt-login" />
-<c:set var="ver" value="0.0.7" />

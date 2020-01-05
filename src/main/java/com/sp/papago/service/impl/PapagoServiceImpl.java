@@ -118,4 +118,9 @@ public class PapagoServiceImpl implements PapagoService {
 	public List<PapagoInfoVO> getPpgInfoList(PapagoInfoVO pvo){
 		return pdao.selectPpgInfoList(pvo);
 	}
+
+	@Override
+	public PapagoInfoVO getPpgInfoView(int piNum) {
+		return pdao.selectPpgInfoView(piNum);
+	}
 }

@@ -7,8 +7,8 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
 integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 crossorigin="anonymous"></script>
-<jsp:include page="/WEB-INF/views/common/papago-head.jsp"></jsp:include>
-<jsp:include page="/WEB-INF/views/common/head.jsp"></jsp:include>
+<%@include file="/WEB-INF/views/common/papago-head.jsp" %>
+<%@include file="/WEB-INF/views/common/head.jsp" %>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="author" content="colorlib">
@@ -57,9 +57,14 @@ crossorigin="anonymous"></script>
 	div.button{
 	text-align:center;
 	}
+	a.headingHome{
+	color: inherit;
+	}
+	a.headingHome:hover{
+	color: inherit;
+	}
 	</style>
 </head>
-
 <body>
 	<!--================ start main Area =================-->
 	<section class="home-banner-area">
@@ -67,9 +72,8 @@ crossorigin="anonymous"></script>
 			<div class="row justify-content-end fullscreen">
 				<div class="col-lg-11 col-md-12 home-banner-left d-flex fullscreen align-items-center">
 					<div class="test">
-						<h1 class="">
-							 <span>Papago</span>Translate <br>
-							
+						<h1 class="" id="headingHome">
+							<a class="headingHome" href="/"> <span>Papago</span>Translate </a><br>
 						</h1>
 						<h4 class="">-by hyeyoung-</h4>
 						<div class="source-container">

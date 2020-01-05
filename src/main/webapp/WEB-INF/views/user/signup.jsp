@@ -9,8 +9,8 @@
 integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 crossorigin="anonymous">
 </script>
-<jsp:include page="/WEB-INF/views/common/head.jsp"></jsp:include>
-<jsp:include page="/WEB-INF/views/common/login-head.jsp"></jsp:include>
+<%@include file="/WEB-INF/views/common/head.jsp" %> 
+<%@include file="/WEB-INF/views/common/login-head.jsp" %> 
 </head>
 <body>
 	<div class="limiter">

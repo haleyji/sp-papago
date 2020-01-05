@@ -10,4 +10,5 @@ public interface PapagoService {
 
 	public Message doTranslate(TranslateVO tvo);
 	public List<PapagoInfoVO> getPpgInfoList(PapagoInfoVO pvo);
+	public PapagoInfoVO getPpgInfoView(int piNum);
 }

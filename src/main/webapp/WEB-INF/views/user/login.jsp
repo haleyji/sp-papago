@@ -8,9 +8,8 @@
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous">
-  </script>
-<jsp:include page="/WEB-INF/views/common/login-head.jsp"></jsp:include>
+  crossorigin="anonymous"></script>
+<%@include file="/WEB-INF/views/common/login-head.jsp" %> 
 </head>
 <body>
 	<div class="limiter">
@@ -53,6 +52,20 @@
 	<script>
 $(document).ready(function(){
 	$('button').on('click',function(){
+		var uiId = document.querySelector('#uiId');
+		if(uiId.value.trim().length<5){
+			alert('아이디는 5글자 이상입니다');
+			uiId.value='';
+			uiId.focus();
+			return false;
+		}
+		var uiPwd = document.querySelector('#uiPwd');
+		if(uiPwd.value.trim().length<5){
+			alert('비밀번호는 5글자 이상입니다');
+			uiPwd.value='';
+			uiPwd.focus();
+			return false;
+		}
 		var param = {
 				uiId:$('#uiId').val(),
 				uiPwd:$('#uiPwd').val()

@@ -28,6 +28,20 @@ public class PapagoDAOImpl implements PapagoDAO {
 		}
 		return null;
 	}
+	
+	@Override
+	public PapagoInfoVO selectPpgInfoView(int piNum) {
+		SqlSession ss = ssf.openSession(false);
+		try {
+			return ss.selectOne("com.sp.papago.dao.PapagoInfoMapper.selectPpgInfoView",piNum);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			ss.close();
+		}
+		return null;
+	}
+	
 	@Override
 	public int insertPpgInfo(PapagoInfoVO pvo) {
 		SqlSession ss = ssf.openSession(false);
@@ -57,6 +71,7 @@ public class PapagoDAOImpl implements PapagoDAO {
 		}
 		return null;
 	}
+	
 	@Override
 	public int updatePpgInfoForCnt(PapagoInfoVO pvo) {
 		SqlSession ss = ssf.openSession(false);
@@ -72,6 +87,4 @@ public class PapagoDAOImpl implements PapagoDAO {
 		}
 		return 0;
 	}
-	
-
 }

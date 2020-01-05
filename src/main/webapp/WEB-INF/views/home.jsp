@@ -22,7 +22,6 @@
 
 	<link rel="stylesheet" href="/resources/bootstrap/bt-home/css/main.css?ver=1.4">
 </head>
-
 <body>
 	<!--================ start banner Area =================-->
 	<section class="home-banner-area">
@@ -34,7 +33,6 @@
 							<span>Welcome </span>to <br>
 							Our Website <br>
 							of <span>Papago Project</span>
-							test 1.0.0
 						</h1><br>
 					<c:if test="${ui==null }">
 						<a href="/views/user/login" class="primary-btn">Login</a>
@@ -53,8 +51,6 @@
 		</div>
 	</section>
 	<!--================ End banner Area =================-->
-
-
 	<!--================ Start Service Area =================-->
 	<section class="service-area section-gap">
 		<div class="container">
@@ -76,8 +72,7 @@
 						</div>
 						<div class="service-content">
 							<h4>Translate</h4>
-							<p>inappropriate behavior is often laughed off as boys will be boys,” women face higher conduct standards
-								especially in the workplace that’s why.</p>
+							<p>번역 서비스<br>다양한 언어로 제공되는 번역 서비스</p>
 						</div>
 					</div>
 				</div>
@@ -91,8 +86,7 @@
 						</div>
 						<div class="service-content">
 							<h4>Userservice</h4>
-							<p>inappropriate behavior is often laughed off as boys will be boys,” women face higher conduct standards
-								especially in the workplace that’s why.</p>
+							<p>회원 전용 서비스<br>회원 전용으로 제공되는 서비스</p>
 						</div>
 					</div>
 				</div>
@@ -105,9 +99,8 @@
 							<img class="clr-icon" src="/resources/bootstrap/bt-home/img/service/clr-icon3.png" alt="">
 						</div>
 						<div class="service-content">
-							<h4>Retrieve</h4>
-							<p>inappropriate behavior is often laughed off as boys will be boys,” women face higher conduct standards
-								especially in the workplace that’s why.</p>
+							<h4>DataBase</h4>
+							<p>번역 자료 조회<br>데이터베이스에 저장되는 <br>과거 번역 자료 조회 서비스</p><br>
 						</div>
 					</div>
 				</div>
@@ -115,8 +108,6 @@
 		</div>
 	</section>
 	<!--================ End Service Area =================-->
-
-
 	<!--================ start footer Area  =================-->
 	<footer class="footer-area section_gap">
 		<div class="container">

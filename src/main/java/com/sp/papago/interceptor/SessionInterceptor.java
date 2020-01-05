@@ -38,8 +38,8 @@ public class SessionInterceptor extends HandlerInterceptorAdapter {
 			String isAjax = req.getHeader("x-ajax");
 			if("DEV".equals(pm)) {
 				UserInfoVO ui = new UserInfoVO();
-				ui.setUiId("haley");
-				ui.setUiPwd("haley");
+				ui.setUiId("papago");
+				ui.setUiPwd("12345");
 				us.doLogin(ui, hs);
 				return true;
 			}

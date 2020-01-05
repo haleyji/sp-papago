@@ -6,26 +6,11 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 	crossorigin="anonymous"></script>
-<jsp:include page="/WEB-INF/views/common/head.jsp"></jsp:include>
+<%@include file="/WEB-INF/views/common/head.jsp" %>
 	<title>History</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700|Roboto:400,400i,500" rel="stylesheet">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/resources/bootstrap/bt-history/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/resources/bootstrap/bt-history/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/resources/bootstrap/bt-history/vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/resources/bootstrap/bt-history/vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/resources/bootstrap/bt-history/vendor/perfect-scrollbar/perfect-scrollbar.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/resources/bootstrap/bt-history/css/util.css">
-	<link rel="stylesheet" type="text/css" href="/resources/bootstrap/bt-history/css/main.css?ver=2">
-<!--===============================================================================================-->
+<%@include file="/WEB-INF/views/common/history-head.jsp" %>
 <style>
 #container{
 max-height:500px;
@@ -74,11 +59,11 @@ overflow:auto;
 					
 					<div class="table100-nextcols">
 					<table class="tb" data-id="user" style="display:none">
-						<tr class="row100 head" data-check="user">
+						<tr data-check="user" class="row100 head">
 							<th class="cell100 column1" data-order="ps.ui_num desc">사용자 번호▼</th>
 							<th class="cell100 column1" data-order="ui.ui_id desc">사용자 아이디▼</th>
 							<th class="cell100 column1" data-order="cnt desc">번역횟수▼</th>
-						</tr data-check="user">
+						</tr>
 						<tBody id="tBodyU">
 						</tBody>
 					</table>
@@ -87,20 +72,8 @@ overflow:auto;
 					</div>
 				</div>
 			</div>
-			</div>
 		</div>
 	</div>
-
-
-<!--===============================================================================================-->	
-	<script src="/resources/bootstrap/bt-history/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/resources/bootstrap/bt-history/vendor/bootstrap/js/popper.js"></script>
-	<script src="/resources/bootstrap/bt-history/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/resources/bootstrap/bt-history/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/resources/bootstrap/bt-history/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 	<script>
 		$('.js-pscroll').each(function(){
 			var ps = new PerfectScrollbar(this);
@@ -118,10 +91,6 @@ overflow:auto;
 			});
 
 		});
-
-		
-		
-		
 	</script>
 	<script>
 	$('#papago-btn').on('click',function(){
@@ -138,7 +107,7 @@ overflow:auto;
 					html+='<td class="cell100 column1">'+res.psNum+'</td>';
 					html+='<td class="cell100 column1">'+res.uiNum+'</td>';
 					html+='<td class="cell100 column1">'+res.uiId+'</td>';
-					html+='<td class="cell100 column1">'+res.piNum+'</td>';
+					html+='<td class="cell100 column1"><a href="/views/papago/view?piNum='+res.piNum+'">'+res.piNum+'</a></td>';
 					html+='<td class="cell100 column1">'+res.credat+'</td>';
 					html+='</tr class="cell100 column1">';
 				}
@@ -149,7 +118,6 @@ overflow:auto;
 			}
 		})
 	}
-	
 	function cDataLoad(data){
 		ajax({
 			url:'/papago/stats/credat?'+data,
@@ -194,6 +162,10 @@ overflow:auto;
 
 $(document).ready(function(){
 	$('button[data-target]').on('click',function(){
+		$('button[data-target]').attr('style','color:inherit;');
+		$('button[data-target]').attr('style','hover:inherit;');
+		$('button[data-target='+this.getAttribute('data-target')+']').css('color','#2faae6');
+		
 		$('table[data-id]').css('display','none');
 		$('table[data-id='+this.getAttribute('data-target')+']').css('display','');
 		if(this.getAttribute('data-target')=='credat'){
@@ -228,8 +200,5 @@ $(document).ready(function(){
 		aDataLoad();
 })
 </script>
-<!--===============================================================================================-->
-	<script src="/resources/bootstrap/bt-history/js/main.js"></script>
-
 </body>
 </html>
