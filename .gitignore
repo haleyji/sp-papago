@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 ##############################
 ## Java
@@ -28,6 +29,8 @@ buildNumber.properties
 ##############################
 ## Eclipse
 ##############################
+**/root-context.xml
+**/conf.properties
 .settings/
 bin/
 tmp/
@@ -56,3 +59,4 @@ nb-configuration.xml
 ## OS X
 ##############################
 .DS_Store
+
