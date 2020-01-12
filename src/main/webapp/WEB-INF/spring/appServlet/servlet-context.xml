@@ -31,6 +31,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/"/>
 			<mvc:exclude-mapping path="/views/user/login"/>
 			<mvc:exclude-mapping path="/views/user/signup"/>
 			<mvc:exclude-mapping path="/signup"/>
