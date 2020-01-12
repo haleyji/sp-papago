@@ -20,7 +20,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700|Roboto:400,400i,500" rel="stylesheet">
 
-	<link rel="stylesheet" href="/resources/bootstrap/bt-home/css/main.css?ver=1.4">
+	<link rel="stylesheet" href="/resources/bootstrap/bt-home/css/main.css">
 </head>
 <body>
 	<!--================ start banner Area =================-->
