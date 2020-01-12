@@ -1,4 +1,4 @@
-맨처음에 git에 올릴 때 이거 저장하고 commit하기 
+
 ##############################
 ## Java
 ##############################
@@ -13,7 +13,6 @@ hs_err_pid*
 ##############################
 ## Maven
 ##############################
-
 /target
 target/
 pom.xml.tag
@@ -25,26 +24,6 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
-
-##############################
-## Gradle
-##############################
-bin/
-build/
-.gradle
-.gradletasknamecache
-gradle-app.setting
-!gradle-wrapper.jar
-
-##############################
-## IntelliJ
-##############################
-out/
-.idea/
-.idea_modules/
-*.iml
-*.ipr
-*.iws
 
 ##############################
 ## Eclipse
