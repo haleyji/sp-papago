@@ -29,8 +29,8 @@ buildNumber.properties
 ##############################
 ## Eclipse
 ##############################
-**/root-context.xml
-**/conf.properties
+root-context.xml
+conf.properties
 .settings/
 bin/
 tmp/
