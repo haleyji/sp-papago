@@ -31,7 +31,7 @@
 					<div>
 						<h1 class="">
 							<span>Welcome </span>to <br>
-							Our Website <br>
+							the Website <br>
 							of <span>Papago Project</span>
 						</h1><br>
 					<c:if test="${ui==null }">
